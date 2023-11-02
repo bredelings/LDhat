@@ -6,8 +6,6 @@
 #include <math.h>
 #include <time.h>
 
-using namespace std;
-
 #include "MCMC.h"
 #include "data.h"
 #include "likelihood.h"

@@ -6,7 +6,6 @@
 #include <vector>
 #include <math.h>
 
-using namespace std;
 #include "params.h"
 #include "rhomap_tools.h"
 #include "hotspot.h"
@@ -21,7 +20,7 @@ public:
 	double position;
 	double endposition;
 
-	vector<hotspot> hotspots;	// Vector of hotspots contained in block
+        std::vector<hotspot> hotspots;	// Vector of hotspots contained in block
 
 	block()
 	{
@@ -88,7 +87,7 @@ public:
 			hotspots[i].print_hotspot_to_screen(run, rate);
 	}
 
-	void find_hotspots_in_block(vector<hotspot> hotspot_list)
+        void find_hotspots_in_block(std::vector<hotspot> hotspot_list)
 	{
 		hotspots.clear();
 		unsigned int i;

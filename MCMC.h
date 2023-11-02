@@ -5,7 +5,6 @@
 #include <vector>
 #include <string>
 
-using namespace std;
 #include "params.h"
 #include "block.h"
 #include "rhomap_tools.h"
@@ -27,11 +26,11 @@ public:
 	struct block_params blockparam;		// Structure holding block prior parameters
 	struct hotspot_params hotspotparam;	// Structure holding hotspot prior parameters
 
-	string rates_file;				// Output filename
-	string hotspots_file;			// Output filename
-	string blocks_file;				// Output filename
-	string acceptance_rates_file;	// Output filename
-	string summary_file;			// Output filename
+	std::string rates_file;				// Output filename
+	std::string hotspots_file;			// Output filename
+	std::string blocks_file;				// Output filename
+	std::string acceptance_rates_file;	// Output filename
+	std::string summary_file;			// Output filename
 
 	bool rate_move, move_block_move, split_merge_move;
 	bool heat_move, move_hot_move, insert_delete_hot_move, scale_move;
@@ -52,7 +51,7 @@ public:
 
 	int numchangepoints;			// Number of blocks
 	int numhotspots;				// Number of hotspots
-	vector< block > blocks;			// Blocks vector
+        std::vector< block > blocks;			// Blocks vector
 
 	bool no_hotspots;				// Flag to indicate that no hotspots allowed
 	bool no_blocks;					// Flag to indicate only one background block
@@ -426,7 +425,7 @@ public:
 		for (i=1; i<=mydata->lseq; i++)
 			if ((rmap[i-1] - rmap[i]) > 0.0000001)
 			{
-				cout << "Error in rmap!" << endl;
+			        std::cout << "Error in rmap!" << std::endl;
 				FILE *file1, *file2;
 				file1 = fopen("errorblocks.txt", "w");
 				file2 = fopen("errorhotspots.txt", "w");
@@ -485,14 +484,14 @@ public:
 		}
 		if ((container_block == -1) || (hot_num_in_block == -1))
 		{
-			cout << "\nBlock Positions" << endl;
+			std::cout << "\nBlock Positions" << std::endl;
 			for (i=0; i<blocks.size(); i++)
-				cout << blocks[i].position << "\t" << blocks[i].endposition << endl;
+				std::cout << blocks[i].position << "\t" << blocks[i].endposition << std::endl;
 
-			cout << "\nHotspot Positions" << endl;
+			std::cout << "\nHotspot Positions" << std::endl;
 			for (i=0; i<blocks.size(); i++)
 				for (j = 0; j < blocks[i].hotspots.size(); j++)
-					cout << blocks[i].hotspots[j].position << endl;
+					std::cout << blocks[i].hotspots[j].position << std::endl;
 
 			nrerror("Cannot find hotspot");
 		}
@@ -677,7 +676,7 @@ public:
 		
 		double totalrecomb = (orig_rate[0] * (orpos - leftlim)) + (orig_rate[1] * (rightlim - orpos));
 		
-		vector <hotspot> local_hotspots;		// Store hotspots contained in blocks...
+		std::vector <hotspot> local_hotspots;		// Store hotspots contained in blocks...
 		for(k=0; k<2; k++)
 			for(j=0; j<blocks[i-1+k].hotspots.size(); j++)
 			{
@@ -807,7 +806,7 @@ public:
 		blocks[i].end_loci = new_block.start_loci;
 
 		// Calculations required to figure out the new rates....
-		vector<hotspot> local_hotspots;
+		std::vector<hotspot> local_hotspots;
 		for (j=0; j<blocks[i].hotspots.size(); j++)
 		{
 			local_hotspots.push_back(blocks[i].hotspots[j]);
@@ -896,7 +895,7 @@ public:
 		int orig_end_loci = blocks[i].end_loci;
 
 		// Set hotspot pointers
-		vector<hotspot> local_hotspots;
+		std::vector<hotspot> local_hotspots;
 		for(j=0; j<blocks[i].hotspots.size(); j++)
 			local_hotspots.push_back(blocks[i].hotspots[j]);
 		for(j=0; j<blockcache.hotspots.size(); j++)

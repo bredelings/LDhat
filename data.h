@@ -4,11 +4,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <math.h>
-#include <stdio.h>
+#include <cmath>
+#include <cstdio>
 #include <algorithm>
-
-using namespace std;
 
 #include "rhomap_tools.h"
 
@@ -21,12 +19,12 @@ class data
 {
 public:
 	
-	string seq_filename;				// Sequence filename
-	string loc_filename;				// Locus filename
-	string freq_filename;				// Allele frequency file
-	string params_filename;				// Paramater output file (for debugging)
+	std::string seq_filename;				// Sequence filename
+	std::string loc_filename;				// Locus filename
+	std::string freq_filename;				// Allele frequency file
+	std::string params_filename;				// Paramater output file (for debugging)
 	int **seqs;							// Sequence data
-	//vector<  string  > seqnames;		// sequence header data
+	//vector<  std::string  > seqnames;		// sequence header data
 	double *locs;						// Loci data
 	int lseq;							// length of seq (in snps)
 	int nseq;							// number of seqs
@@ -41,7 +39,7 @@ public:
 
 	bool lk_exact;						// Likelihood file is precalculated for this dataset
 	int random_seq_subset_size;			// Use a random subset of sequences to match likelihood file
-	vector<int> order;					// Used to define subset ordering
+        std::vector<int> order;					// Used to define subset ordering
 
 	int **nall;			// Matrix of allele frequencies
 
@@ -186,7 +184,7 @@ public:
 		for (i=0; i<random_seq_subset_size+1; i++)
 			order[i] = i;
 
-		random_shuffle(order.begin()+1, order.end());
+		std::random_shuffle(order.begin()+1, order.end());
 
 		for (i=1; i<random_seq_subset_size+1; i++)
 			for (j=0; j<lseq+1; j++)

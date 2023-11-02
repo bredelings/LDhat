@@ -3,7 +3,6 @@
 #pragma warning(disable:4786) 
 #include <vector>
 #include <math.h>
-using namespace std;
 
 #include "rhomap_tools.h"
 
@@ -147,7 +146,7 @@ public:
 			return recomb;
 		}
 
-		cout << "problem here?" << endl;
+		std::cout << "problem here?" << std::endl;
 		return recomb;
 	}
 

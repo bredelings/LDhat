@@ -1,10 +1,10 @@
 #if !defined RHOMAP_TOOLS_H
 #define RHOMAP_TOOLS_H
 #pragma warning(disable:4786) 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <time.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <ctime>
 
 #define SWAP(a,b) temp=(a);(a)=(b);(b)=temp;
 

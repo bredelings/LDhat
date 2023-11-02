@@ -4,8 +4,6 @@
 #include <string>
 #include <math.h>
 
-using namespace std;
-
 #include "data.h"
 #include "compLK.h"
 #include "rhomap_tools.h"
@@ -13,9 +11,9 @@ using namespace std;
 class likelihood
 {
 public:
-	string lk_filename;				// Likelihood filename
+        std::string lk_filename;				// Likelihood filename
 
-	string lk_out_filename;			// Output file of likelihood curve
+        std::string lk_out_filename;			// Output file of likelihood curve
 	bool output_lk_curve;			// Output likelihood curve
 
 	double *lnfac_array;			// Precomputed table of log factorials
@@ -135,8 +133,8 @@ public:
 			if (check != 1)
 			{
 				int tempint;
-				cout << "\n\nLikelihood file does not seem to be exhaustive." << endl;
-				cout << "Is the likelihood pre-calculated for this dataset? (0/1)" << endl;
+				std::cout << "\n\nLikelihood file does not seem to be exhaustive." << std::endl;
+				std::cout << "Is the likelihood pre-calculated for this dataset? (0/1)" << std::endl;
 				scanf("%i", &tempint);
 				if (tempint == 1)
 				{

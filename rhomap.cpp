@@ -1,6 +1,10 @@
 
 #include "rhomap.h"
 
+using std::cout;
+using std::endl;
+using std::string;
+
 int main(int argc, char* argv[])
 {
 	print_help(argc, argv);		// Output help to user if required
@@ -190,7 +194,7 @@ void read_arguments(int argc, char* argv[], data *mydata, MCMC *myMCMC, likeliho
 			in_str = argv[i];
 			if ((strcmp(in_str, "-fileprefix") == 0)  || (strcmp(in_str, "-prefix") == 0))
 			{
-				string prefix = argv[i+1];
+			        string prefix = argv[i+1];
 				mydata->freq_filename = prefix + mydata->freq_filename;
 				mydata->params_filename = prefix + mydata->params_filename;
 				myMCMC->rates_file = prefix + myMCMC->rates_file;

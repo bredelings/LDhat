@@ -1,7 +1,7 @@
 #if !defined COMPLK_H
 #define COMPLK_H
 #pragma warning(disable:4786) 
-#include <math.h>
+#include <cmath>
 
 #include "rhomap_tools.h"
 #include "data.h"
